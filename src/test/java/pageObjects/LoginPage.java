@@ -1,6 +1,7 @@
 package pageObjects;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import static utils.Utils.driver;
 
 import org.openqa.selenium.By;
@@ -28,7 +29,7 @@ public class LoginPage {
 
 	@FindBy(id = "btnSearchValues")
 	private WebElement botaoRecuperaSenha;
-	
+
 	@FindBy(id = "btnCancel")
 	private WebElement botaoVoltar;
 
@@ -37,9 +38,8 @@ public class LoginPage {
 //	###################################
 //	###################################
 
-
 	public void validacaoTelaLogin() {
-		assertEquals("LOGIN Panel", driver.findElement(By.id("logInPanelHeading")).getText());
+		assertEquals("( Username : Admin | Password : admin123 )", driver.findElement(By.xpath("//*[contains(text(),'Username : Admin | Password : admin123')]")).getText());
 	}
 
 	public void informarCampoUsuario(String usuario) {
@@ -92,6 +92,14 @@ public class LoginPage {
 
 	public void botaoVoltar() {
 		botaoVoltar.click();
-		
+
+	}
+
+	public void alertaPaginaRecuperarSenha(String arg1) {
+		assertTrue(driver.findElement(By.xpath("//*[contains(text(),'Please contact HR admin')]")).isDisplayed());
+
+	}
+	public void alertaPaginaRecuperarSenhaCampoVazio(String arg1) {
+		assertTrue(driver.findElement(By.xpath("//*[contains(text(),'Could not find a user')]")).isDisplayed());
 	}
 }
