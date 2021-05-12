@@ -64,8 +64,8 @@ public class LoginPage {
 
 	public void realizarLogin(String usuario, String password) {
 		informarCampoUsuario(usuario);
-		campoSenha.sendKeys(password);
-		botaoLogin.click();
+		informarCampoSenha(password);
+		clicarBotaoLogin();
 
 	}
 
