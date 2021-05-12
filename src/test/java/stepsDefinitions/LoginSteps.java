@@ -55,7 +55,7 @@ public class LoginSteps {
 
 	@Entao("o sistema exibe o usuario logado")
 	public void oSistemaExibeOUsuarioLogado() {
-		assertEquals("Welcome Paul", driver.findElement(By.id("welcome")).getText());
+		assertEquals("Dashboard", driver.findElement(By.linkText("Dashboard")).getText());
 	}
 
 	@Quando("acessar o link {string} para recuperar senha")
@@ -81,6 +81,16 @@ public class LoginSteps {
 	@E("^clica no botao Cancelar para voltar a pagina inicial$")
 	public void clicaNoBotaoCancelarParaVoltarAPaginaInicial() {
 		Na(LoginPage.class).botaoVoltar();
+	}
+
+	@Entao("^o site apresenta um alerta \"([^\"]*)\"$")
+	public void oSiteApresentaUmAlerta(String arg1){
+		Na(LoginPage.class).alertaPaginaRecuperarSenha(arg1);
+	}
+
+	@Entao("^o site apresenta um alerta de campo vazio \"([^\"]*)\"$")
+	public void oSiteApresentaUmAlertaDeCampoVazio(String arg1){
+		Na(LoginPage.class).alertaPaginaRecuperarSenhaCampoVazio(arg1);
 	}
 
 }
