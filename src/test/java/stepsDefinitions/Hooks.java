@@ -8,7 +8,7 @@ import pageObjects.LoginPage;
 
 public class Hooks {
 
-	@Before(value = "@CadastroUsuario")
+	@Before(value = "~@login")
 	public void acesarSiteJaLogado() {
 		acessarNavegador();
 		Na(LoginPage.class).realizarLogin("Admin", "admin123");
