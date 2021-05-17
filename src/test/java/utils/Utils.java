@@ -21,7 +21,7 @@ public class Utils {
 	}
 	
 	public static void fecharNavegador() {
-		driver.quit();
+		driver.quit(); 
 
 	}
 	

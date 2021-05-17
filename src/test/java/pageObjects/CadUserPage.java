@@ -1,12 +1,12 @@
 package pageObjects;
 
+import static org.junit.Assert.assertEquals;
+import static utils.Utils.driver;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
-
-import static org.junit.Assert.assertEquals;
-import static utils.Utils.*;
 
 public class CadUserPage {
 
@@ -35,7 +35,7 @@ public class CadUserPage {
 	@FindBy(id = "systemUser_userName")
 	private WebElement campoUserName;
 
-	@FindBy(id = "//option[text()='Enabled']")
+	@FindBy(xpath = "//option[text()='Enabled']")
 	private WebElement campoStatus;
 
 	@FindBy(id = "systemUser_password")
@@ -46,6 +46,10 @@ public class CadUserPage {
 
 	@FindBy(id = "btnSave")
 	private WebElement botaoSave;
+	
+	@FindBy(id = "btnCancel")
+	private WebElement botaoCancelar;
+	 
 
 //	##########################################
 //	##########################################
@@ -96,9 +100,28 @@ public class CadUserPage {
 		botaoSave.click();
 	}
 
-	public void validarCadastroUsuarioComSucesso(String alerta) {
-		assertEquals(alerta, driver.findElement(By.xpath("//*[contains(text(), '" + alerta + "')]")).isDisplayed());
+	public void validarCadastroUsuarioComSucesso(String user) {
+		assertEquals(user, driver.findElement(By.xpath("//a[text()='" + user + "']")).getText());
 
+	}
+
+	public void employeeNameNaoExiste(String arg1) {
+		assertEquals(arg1, driver.findElement(By.xpath("//span[text()='Employee does not exist']")).getText());
+
+	}
+
+	public void userNameRequerido(String string) {
+		assertEquals(string, driver.findElement(By.xpath("//span[@for='systemUser_userName']")).getText());
+
+	}
+
+	public void passwordRequerido(String string) {
+		assertEquals(string, driver.findElement(By.xpath("//span[@for='systemUser_password']")).getText());
+
+	}
+	
+	public void clicarBotaoCancelar() {
+		botaoCancelar.click();
 	}
 
 }
