@@ -64,8 +64,35 @@ public class CadUserSteps {
 		Na(CadUserPage.class).clicarBotaoSalvar();
 	}
 
-	@Entao("o sistema confirmara o cadastrado realizado com sucesso {string}")
-	public void oSistemaConfirmaraOCadastradoRealizadoComSucesso(String string) {
-		Na(CadUserPage.class).validarCadastroUsuarioComSucesso(string);
+	@Entao("^o sistema confirmara o cadastrado constanto o nome do usuario na lista \"([^\"]*)\"$")
+	public void oSistemaConfirmaraOCadastradoConstantoONomeDoUsuarioNaLista(String arg1) {
+		Na(CadUserPage.class).validarCadastroUsuarioComSucesso(arg1);
+	}
+
+	
+	
+	@Entao("^o site informa que o usuario nao existe \"([^\"]*)\"$")
+	public void oSiteInformaQueOUsuarioNaoExiste(String arg1) {
+		Na(CadUserPage.class).employeeNameNaoExiste(arg1);
+	}
+
+	@Entao("^o site apontara erro no campo employeeName$")
+	public void oSiteApontaraErroNoCampoEmployeeName() {
+		Na(CadUserPage.class).employeeNameNaoExiste("Employee does not exist");
+	}
+
+	@Entao("^o site apontara erro no campo userName$")
+	public void oSiteApontaraErroNoCampoUserName(){
+		Na(CadUserPage.class).userNameRequerido("Required");
+	}
+
+	@Entao("^o site apontara erro no password$")
+	public void oSiteApontaraErroNoPassword(){
+		Na(CadUserPage.class).passwordRequerido("Required");
+	}
+
+	@Entao("^o ususario clica no botao Cancelar$")
+	public void oUsusarioClicaNoBotaoCancelar() {
+		Na(CadUserPage.class).clicarBotaoCancelar();
 	}
 }
