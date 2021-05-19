@@ -26,7 +26,7 @@ public class JobsPage {
 
 	@FindBy(id = "jobTitle_jobTitle")
 	private WebElement campoJobTitle;
-	
+
 	@FindBy(id = "jobTitle_jobDescription")
 	private WebElement campoJobDescription;
 
@@ -35,6 +35,9 @@ public class JobsPage {
 
 	@FindBy(name = "btnSave")
 	private WebElement botaoSave;
+	
+	@FindBy(name = "btnCancel")
+	private WebElement botaoCancelar;
 
 //###########################################################################
 //###########################################################################
@@ -63,17 +66,31 @@ public class JobsPage {
 	public void informarCampoJobDescription(String jobDescription) {
 		campoJobDescription.sendKeys(jobDescription);
 	}
-	
+
 	public void informarCampoNote(String note) {
 		campoNote.sendKeys(note);
 	}
-	
+
 	public void clicarBotaoSave() {
 		botaoSave.click();
 	}
-	
+
 	public void confirmarNomeJobNaLista(String valida) {
 		assertEquals(valida, driver.findElement(By.linkText("QA Test")).getText());
+	}
+
+	public void validaJobJaCadastrado(String alerta) {
+		assertEquals(alerta, driver.findElement(By.xpath("//span[text()='Already exists']")).getText());
+
+	}
+	
+	public void clicarBotaoCancelar() {
+		botaoCancelar.click();
+	}
+
+	public void campoObrigatorio(String arg1) {
+		assertEquals(arg1, driver.findElement(By.xpath("//span[text()='Required']")).getText());
+		
 	}
 
 }

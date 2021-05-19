@@ -56,4 +56,19 @@ public class JobsSteps {
 		Na(JobsPage.class).confirmarNomeJobNaLista(arg1);
 	}
 
+	@Entao("^o sistema alerta que o cadastro do titulo do job ja existe \"([^\"]*)\"$")
+	public void oSistemaAlertaQueOCadastroDoTituloDoJobJaExiste(String arg1){
+		Na(JobsPage.class).validaJobJaCadastrado(arg1);
+	}
+
+	@E("^clicar no botao Cancel$")
+	public void clicarNoBotaoCancel(){
+		Na(JobsPage.class).clicarBotaoCancelar();
+	}
+
+	@Entao("^o sistema alerta que campo Job Title e obrigatorio \"([^\"]*)\"$")
+	public void oSistemaAlertaQueCampoJobTitle…Obrigatorio(String arg1){
+		Na(JobsPage.class).campoObrigatorio(arg1);
+	}
+
 }
