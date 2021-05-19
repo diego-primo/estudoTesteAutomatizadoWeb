@@ -1,7 +1,7 @@
 #language: pt
 #@enconding: UFT-8
 @CadastroUsuario
-Funcionalidade: Acessar Sistema ja logado
+Funcionalidade: Acessar Sistema ja logado e realizar cadastro de ususario
 
   Contexto: 
     Quando mover o mouse para Aba Admin

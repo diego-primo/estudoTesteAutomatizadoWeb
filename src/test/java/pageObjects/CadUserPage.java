@@ -1,7 +1,7 @@
 package pageObjects;
 
 import static org.junit.Assert.assertEquals;
-import static utils.Utils.driver;
+import static utils.Utils.*;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -50,7 +50,6 @@ public class CadUserPage {
 	@FindBy(id = "btnCancel")
 	private WebElement botaoCancelar;
 	 
-
 //	##########################################
 //	##########################################
 //	##########################################

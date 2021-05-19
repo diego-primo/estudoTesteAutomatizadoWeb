@@ -11,7 +11,7 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
 @CucumberOptions(
 		plugin = {"pretty"},
 		features = "src\\test\\resources\\features",
-		tags = {"@CamposEmBranco"},
+		tags = {"@CadJob"},
 		glue = "stepsDefinitions",	
 		snippets = SnippetType.CAMELCASE,
 		monochrome = true,
